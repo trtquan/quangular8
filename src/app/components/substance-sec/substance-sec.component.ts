@@ -5,6 +5,7 @@ import { SubtanceSecFormService } from './substance-sec.service';
   selector: 'substance-sec',
   templateUrl: './substance-sec.component.html',
   styleUrls: ['./substance-sec.component.scss'],
+  providers: [SubtanceSecFormService]
 })
 export class SubstanceSecComponent implements OnInit {
 

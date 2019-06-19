@@ -1,0 +1,28 @@
+<div class="substance-viewer" [ngClass]="{ 'substance-viewer-empty': !selectedSubstanceGroup }">
+  <div class="row" *ngIf="selectedSubstanceGroup" [formGroup]="selectedSubstanceGroup">
+    <div class="col-md-6 offset-md-3">
+      <app-substance-prequency formControlName="prequency"></app-substance-prequency>
+    </div>
+    <div class="col-md-12 mg-top-15">
+      <h5>UseRouts</h5>
+      <div class="use-routs-selector" formArrayName="useRoutes">
+        <div class="use-routs-selector-item" *ngFor="let useRoute of useRoutesArr.controls" [formGroup]="useRoute" >
+          <mat-checkbox [formControl]="useRoute.get('selected')">
+            {{useRoute.get('name').value}}
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" *ngIf="!selectedSubstanceGroup" style="height: 100%">
+    <div class="substance-viewer-no-selected">
+      <h4>
+        You have not selected any substance yet.
+      </h4>
+      <button mat-button  color="primary" (click)="addSubstance.emit()">
+        <mat-icon>add_circle</mat-icon>
+        Add one
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,31 @@
-<div class="container content">
-  <div class="row">
-    <div class="col-md-12">
-      Other Subtance 
+<div class="row" [formGroup]="group">
+  <div class="col-md-12">
+    <div class="subs-sec">
+      <div class="subs-sec-title">
+        <h2>
+          Other substance
+        </h2>
+      </div>
+      <div class="subs-sec-content" formArrayName="substances">
+        <div class="subs-sec-item"
+             *ngFor="let substance of substancesArr.controls; let i = index;"
+             [ngClass]="{'subs-sec-item-active': group.get('selectedSubstance').value === i}"
+             (click)="substanceSelected.emit(i)"
+             [formGroup]="substance">
+          <span>
+            {{getSubstanceTitle(substance.value)}}
+          </span>
+
+          <button mat-icon-button (click)="deleteSubstance.emit(i); $event.stopPropagation()">
+            <mat-icon class="subs-sec-item-icon">remove_circle</mat-icon>
+          </button>
+        </div>
+
+        <div class="subs-sec-item subs-sec-item-add" (click)="addSubstance.emit()">
+          <mat-icon class="subs-sec-item-icon">add_circle</mat-icon>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

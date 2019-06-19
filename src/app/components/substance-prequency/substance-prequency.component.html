@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="sub-pre">
+      <div class="sub-pre-item"
+           (click)="changePre(SubstancePrequencyEnum.DAILY)"
+           [ngClass]="{'sub-pre-item-active': subPre === SubstancePrequencyEnum.DAILY}">
+        DAILY
+      </div>
+      <div class="sub-pre-item"
+           (click)="changePre(SubstancePrequencyEnum.MONTHLY)"
+           [ngClass]="{'sub-pre-item-active': subPre === SubstancePrequencyEnum.MONTHLY}">
+        MONTHLY
+      </div>
+      <div class="sub-pre-item"
+           (click)="changePre(SubstancePrequencyEnum.YEARLY)"
+           [ngClass]="{'sub-pre-item-active': subPre === SubstancePrequencyEnum.YEARLY}">
+        YEARLY
+      </div>
+    </div>
+  </div>
+</div>
